@@ -15,17 +15,13 @@ module top #(
   wire [4:0] i_value = io_in[7:3];
 
   wire [BITS_PER_ELEM - 1:0] ra_out;
-  assign io_out[BITS_PER_ELEM-1:0] = ra_out;
+  assign io_out[BITS_PER_ELEM-1:0] = {3'b000, ra_out[4:0]};
 
-  // make remaining bits zero
-  assign io_out[5] = 1'b0;
-  assign io_out[6] = 1'b0;
-  assign io_out[7] = 1'b0;
-
-  wire [TOTAL_SRL_BITS - 1:0] taps;
 
   parameter SRL_SIZE = RA_SIZE + 1;  // RA_SIZE valid inputs and one stale input
-  parameter TOTAL_SRL_BITS = 5 * RA_SIZE;
+  parameter TOTAL_SRL_BITS = 5 * SRL_SIZE;
+  wire [TOTAL_SRL_BITS - 1:0] taps;
+
   shift_register_line #(
       .TOTAL_TAPS(SRL_SIZE),
       .BITS_PER_ELEM(BITS_PER_ELEM),
@@ -40,7 +36,7 @@ module top #(
   );
 
   // rolling sums RA_SIZE elements + 1 stale element
-  parameter RA_NUM_ELEM = RA_SIZE + 1;
+  parameter RA_NUM_ELEM = RA_SIZE;
   parameter MAX_BITS = 8;  // log_2(31 * 8) = 7.9 ~ 8; where 31 is largest valut for 5 bit elem
   rolling_average #(
       .BITS_PER_ELEM(BITS_PER_ELEM),
@@ -48,8 +44,8 @@ module top #(
   ) ra_1 (
       .clk(clk),
       .rst(rst),
-      .i_new(taps[BITS_PER_ELEM-1:0]),
-      .i_old(taps[BITS_PER_ELEM*(RA_NUM_ELEM)-1:BITS_PER_ELEM*(RA_NUM_ELEM-1)]),
+      .i_new(taps[4:0]),
+      .i_old(taps[(4 + 5 * 9):(0 + 5 * 8)]),
       .i_start_calc(start_calc),
       .o_ra(ra_out[BITS_PER_ELEM-1:0])
   );

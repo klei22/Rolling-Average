@@ -13,7 +13,7 @@ module rolling_average #(
 
   // output goes into ma shift register
   reg [MAX_BITS - 1:0] ra_sum;  // rolling sum
-  assign o_ra = ra_sum[(MAX_BITS-1):(MAX_BITS-BITS_PER_ELEM)];  // evuiv to right shift 4 times
+  assign o_ra[BITS_PER_ELEM - 1:0] = ra_sum[(MAX_BITS-1):(MAX_BITS-BITS_PER_ELEM)];  // equiv to right shift 3 times
 
   always @(posedge clk) begin
     if (rst) begin
