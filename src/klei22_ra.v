@@ -1,6 +1,6 @@
 `default_nettype none
 
-module top #(
+module klei22_ra #(
     parameter RA_SIZE = 8,
     parameter BITS_PER_ELEM = 5
 ) (

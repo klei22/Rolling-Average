@@ -5,7 +5,7 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 
-VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/top.v $(PWD)/shift_register_line.v $(PWD)/rolling_average.v
+VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/klei22_ra.v $(PWD)/shift_register_line.v $(PWD)/rolling_average.v
 
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
 TOPLEVEL = tb
