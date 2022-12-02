@@ -1,4 +1,4 @@
---- 
+---
 # TinyTapeout project information
 project:
   wokwi_id:    0        # If using wokwi, set this to your project's ID
@@ -14,14 +14,14 @@ project:
 # Here is an example: https://github.com/mattvenn/tinytapeout_m_segments/blob/main/info.yaml
 #
 # This info will be automatically collected and used to make a datasheet for the chip.
-documentation: 
-  author:       "Matt Venn"      # Your name
-  discord:      "mattvenn#1907"      # Your discord handle
-  title:        "7 segment seconds"      # Project title
-  description:  "count up to 10, one second at a time"      # Short description of what your project does
-  how_it_works: "uses a register and some combinational logic"      # Longer description of how the project works
-  how_to_test:  "after reset, the counter should increase by one every second"      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
-  external_hw:  ""      # Describe any external hardware needed
+documentation:
+  author:       "Kauna Lei"      # Your name
+  discord:      "akuna"      # Your discord handle
+  title:        "Rolling Average - 5 bit, 8 bank"      # Project title
+  description:  "5bit moving average"      # Short description of what your project does
+  how_it_works: "Using Shift Register Line and Rolling Sum Trick"      # Longer description of how the project works
+  how_to_test:  "Clock in the high 5 bits of io_in (io_in[7:3]) with the i_data_clk (io_in[2]) (active high), and read output on io_out[4:0]"      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  external_hw:  "gpios to connect with io_in[7:2] and to read io_out[4:0]"      # Describe any external hardware needed
   language:     "verilog" # other examples include Verilog, Amaranth, VHDL, etc
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     1000       # Clock frequency in Hz (if required)
@@ -29,19 +29,19 @@ documentation:
   inputs:               # a description of what the inputs do
     - clock
     - reset
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - i_data_clk
+    - i_value[0]
+    - i_value[1]
+    - i_value[2]
+    - i_value[3]
+    - i_value[4]
   outputs:
-    - segment a         # a description of what the outputs do
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
-    - none
+    - ra_out[0]
+    - ra_out[1]
+    - ra_out[2]
+    - ra_out[3]
+    - ra_out[4]
+    - 0
+    - 0
+    - 0
 
