@@ -1,0 +1,206 @@
+#! /home/dastechlabs/.FPGA_Toolchain/oss-cad-suite/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1658-g74c52d6fa)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/home/dastechlabs/.FPGA_Toolchain/oss-cad-suite/lib/ivl/system.vpi";
+:vpi_module "/home/dastechlabs/.FPGA_Toolchain/oss-cad-suite/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/home/dastechlabs/.FPGA_Toolchain/oss-cad-suite/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/home/dastechlabs/.FPGA_Toolchain/oss-cad-suite/lib/ivl/v2005_math.vpi";
+:vpi_module "/home/dastechlabs/.FPGA_Toolchain/oss-cad-suite/lib/ivl/va_math.vpi";
+:vpi_module "/home/dastechlabs/.FPGA_Toolchain/oss-cad-suite/lib/ivl/v2009.vpi";
+S_0x555555d95af0 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_0x555555d95c80 .scope module, "tb" "tb" 3 9;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst";
+    .port_info 2 /INPUT 1 "i_data_clk";
+    .port_info 3 /OUTPUT 5 "ra_out";
+L_0x7f60747be018 .functor BUFT 1, C4<00000>, C4<0>, C4<0>, C4<0>;
+v0x555555db8a30_0 .net/2u *"_ivl_0", 4 0, L_0x7f60747be018;  1 drivers
+o0x7f6074807678 .functor BUFZ 1, C4<z>; HiZ drive
+v0x555555db8b10_0 .net "clk", 0 0, o0x7f6074807678;  0 drivers
+o0x7f60748076a8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x555555db8bd0_0 .net "i_data_clk", 0 0, o0x7f60748076a8;  0 drivers
+v0x555555db8c70_0 .net "inputs", 7 0, L_0x555555db9080;  1 drivers
+v0x555555db8d60_0 .net "outputs", 7 0, L_0x555555db9700;  1 drivers
+v0x555555db8e50_0 .net "ra_out", 4 0, L_0x555555db9250;  1 drivers
+o0x7f6074807708 .functor BUFZ 1, C4<z>; HiZ drive
+v0x555555db8f10_0 .net "rst", 0 0, o0x7f6074807708;  0 drivers
+L_0x555555db9080 .concat [ 1 1 1 5], o0x7f6074807678, o0x7f6074807708, o0x7f60748076a8, L_0x7f60747be018;
+L_0x555555db9250 .part L_0x555555db9700, 0, 5;
+S_0x555555d8f730 .scope module, "top_1" "top" 3 30, 4 3 0, S_0x555555d95c80;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "io_in";
+    .port_info 1 /OUTPUT 8 "io_out";
+P_0x555555d8f8c0 .param/l "BITS_PER_ELEM" 0 4 5, +C4<00000000000000000000000000000101>;
+P_0x555555d8f900 .param/l "MAX_BITS" 1 4 44, +C4<00000000000000000000000000001000>;
+P_0x555555d8f940 .param/l "RA_NUM_ELEM" 1 4 43, +C4<000000000000000000000000000001001>;
+P_0x555555d8f980 .param/l "RA_SIZE" 0 4 4, +C4<00000000000000000000000000001000>;
+P_0x555555d8f9c0 .param/l "SRL_SIZE" 1 4 27, +C4<000000000000000000000000000001001>;
+P_0x555555d8fa00 .param/l "TOTAL_SRL_BITS" 1 4 28, +C4<0000000000000000000000000000000000000000000000000000000000101000>;
+L_0x555555db9640 .functor BUFZ 5, L_0x555555db9980, C4<00000>, C4<00000>, C4<00000>;
+v0x555555db7f50_0 .net *"_ivl_11", 4 0, L_0x555555db9640;  1 drivers
+L_0x7f60747be060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x555555db8050_0 .net/2u *"_ivl_14", 0 0, L_0x7f60747be060;  1 drivers
+L_0x7f60747be0a8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x555555db8130_0 .net/2u *"_ivl_18", 0 0, L_0x7f60747be0a8;  1 drivers
+L_0x7f60747be0f0 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x555555db8220_0 .net/2u *"_ivl_23", 0 0, L_0x7f60747be0f0;  1 drivers
+v0x555555db8300_0 .net "clk", 0 0, L_0x555555db9340;  1 drivers
+v0x555555db83f0_0 .net "i_data_clk", 0 0, L_0x555555db9480;  1 drivers
+v0x555555db8490_0 .net "i_value", 4 0, L_0x555555db9520;  1 drivers
+v0x555555db8530_0 .net "io_in", 7 0, L_0x555555db9080;  alias, 1 drivers
+v0x555555db85f0_0 .net "io_out", 7 0, L_0x555555db9700;  alias, 1 drivers
+v0x555555db86d0_0 .net "ra_out", 4 0, L_0x555555db9980;  1 drivers
+v0x555555db87c0_0 .net "rst", 0 0, L_0x555555db93e0;  1 drivers
+v0x555555db8860_0 .net "start_calc", 0 0, L_0x555555db9910;  1 drivers
+v0x555555db8950_0 .net "taps", 39 0, v0x555555db7c90_0;  1 drivers
+L_0x555555db9340 .part L_0x555555db9080, 0, 1;
+L_0x555555db93e0 .part L_0x555555db9080, 1, 1;
+L_0x555555db9480 .part L_0x555555db9080, 2, 1;
+L_0x555555db9520 .part L_0x555555db9080, 3, 5;
+L_0x555555db9700 .concat8 [ 5 1 1 1], L_0x555555db9640, L_0x7f60747be060, L_0x7f60747be0a8, L_0x7f60747be0f0;
+L_0x555555db9a20 .part v0x555555db7c90_0, 0, 5;
+S_0x555555d9b2f0 .scope module, "ra_1" "rolling_average" 4 48, 5 1 0, S_0x555555d8f730;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst";
+    .port_info 2 /INPUT 5 "i_new";
+    .port_info 3 /INPUT 5 "i_old";
+    .port_info 4 /INPUT 1 "i_start_calc";
+    .port_info 5 /OUTPUT 5 "o_ra";
+P_0x555555d85db0 .param/l "BITS_PER_ELEM" 0 5 2, +C4<00000000000000000000000000000101>;
+P_0x555555d85df0 .param/l "MAX_BITS" 0 5 4, +C4<00000000000000000000000000001000>;
+v0x555555d96040_0 .net "clk", 0 0, L_0x555555db9340;  alias, 1 drivers
+v0x555555d961b0_0 .net "i_new", 4 0, L_0x555555db9a20;  1 drivers
+L_0x7f60747be138 .functor BUFT 1, C4<xxxxx>, C4<0>, C4<0>, C4<0>;
+v0x555555d82450_0 .net "i_old", 4 0, L_0x7f60747be138;  1 drivers
+v0x555555db6ff0_0 .net "i_start_calc", 0 0, L_0x555555db9910;  alias, 1 drivers
+v0x555555db70b0_0 .net "o_ra", 4 0, L_0x555555db9980;  alias, 1 drivers
+v0x555555db71e0_0 .var "ra_sum", 7 0;
+v0x555555db72c0_0 .net "rst", 0 0, L_0x555555db93e0;  alias, 1 drivers
+E_0x555555d9d170 .event posedge, v0x555555d96040_0;
+L_0x555555db9980 .part v0x555555db71e0_0, 3, 5;
+S_0x555555db7440 .scope module, "srl_1" "shift_register_line" 4 33, 6 3 0, S_0x555555d8f730;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst";
+    .port_info 2 /INPUT 5 "i_value";
+    .port_info 3 /INPUT 1 "i_data_clk";
+    .port_info 4 /OUTPUT 1 "o_start_calc";
+    .port_info 5 /OUTPUT 40 "o_taps";
+P_0x555555d686a0 .param/l "BITS_PER_ELEM" 0 6 5, +C4<00000000000000000000000000000101>;
+P_0x555555d686e0 .param/l "TOTAL_BITS" 0 6 6, +C4<0000000000000000000000000000000000000000000000000000000000101000>;
+P_0x555555d68720 .param/l "TOTAL_TAPS" 0 6 4, +C4<000000000000000000000000000001001>;
+L_0x555555db9910 .functor BUFZ 1, v0x555555db7df0_0, C4<0>, C4<0>, C4<0>;
+v0x555555db7820_0 .net "clk", 0 0, L_0x555555db9340;  alias, 1 drivers
+v0x555555db78c0_0 .var "data_clk_previous", 0 0;
+v0x555555db7960_0 .var "data_clk_two_previous", 0 0;
+v0x555555db7a00_0 .net "i_data_clk", 0 0, L_0x555555db9480;  alias, 1 drivers
+v0x555555db7ac0_0 .net/s "i_value", 4 0, L_0x555555db9520;  alias, 1 drivers
+v0x555555db7bf0_0 .net "o_start_calc", 0 0, L_0x555555db9910;  alias, 1 drivers
+v0x555555db7c90_0 .var "o_taps", 39 0;
+v0x555555db7d50_0 .net "rst", 0 0, L_0x555555db93e0;  alias, 1 drivers
+v0x555555db7df0_0 .var "start_calc", 0 0;
+    .scope S_0x555555db7440;
+T_0 ;
+    %pushi/vec4 0, 0, 40;
+    %store/vec4 v0x555555db7c90_0, 0, 40;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x555555db7df0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x555555db78c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x555555db7960_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x555555db7440;
+T_1 ;
+    %wait E_0x555555d9d170;
+    %load/vec4 v0x555555db7d50_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 0, 0, 40;
+    %assign/vec4 v0x555555db7c90_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x555555db7df0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x555555db78c0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x555555db7960_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0x555555db7c90_0;
+    %assign/vec4 v0x555555db7c90_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x555555db7df0_0, 0;
+    %load/vec4 v0x555555db7a00_0;
+    %load/vec4 v0x555555db78c0_0;
+    %inv;
+    %and;
+    %load/vec4 v0x555555db7960_0;
+    %inv;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.2, 8;
+    %load/vec4 v0x555555db7c90_0;
+    %parti/s 35, 0, 2;
+    %load/vec4 v0x555555db7ac0_0;
+    %concat/vec4; draw_concat_vec4
+    %assign/vec4 v0x555555db7c90_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x555555db7df0_0, 0;
+T_1.2 ;
+    %load/vec4 v0x555555db7a00_0;
+    %assign/vec4 v0x555555db78c0_0, 0;
+    %load/vec4 v0x555555db78c0_0;
+    %assign/vec4 v0x555555db7960_0, 0;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x555555d9b2f0;
+T_2 ;
+    %wait E_0x555555d9d170;
+    %load/vec4 v0x555555db72c0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.0, 8;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v0x555555db71e0_0, 0;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/vec4 v0x555555db6ff0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.2, 8;
+    %load/vec4 v0x555555db71e0_0;
+    %load/vec4 v0x555555d961b0_0;
+    %pad/u 8;
+    %add;
+    %load/vec4 v0x555555d82450_0;
+    %pad/u 8;
+    %sub;
+    %assign/vec4 v0x555555db71e0_0, 0;
+    %jmp T_2.3;
+T_2.2 ;
+    %load/vec4 v0x555555db71e0_0;
+    %assign/vec4 v0x555555db71e0_0, 0;
+T_2.3 ;
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x555555d95c80;
+T_3 ;
+    %vpi_call/w 3 19 "$dumpfile", "tb.vcd" {0 0 0};
+    %vpi_call/w 3 20 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x555555d95c80 {0 0 0};
+    %delay 1000, 0;
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 7;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/dastechlabs/FPGA_Projects/Rolling-Average/src/tb.v";
+    "/home/dastechlabs/FPGA_Projects/Rolling-Average/src/top.v";
+    "/home/dastechlabs/FPGA_Projects/Rolling-Average/src/rolling_average.v";
+    "/home/dastechlabs/FPGA_Projects/Rolling-Average/src/shift_register_line.v";
